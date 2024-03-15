@@ -103,10 +103,10 @@ describe('UserService', () => {
     const mockUser = { id: 1, email: 'admin@example.com', role: '1' };
     userRepositoryMock.update.mockResolvedValue({ affected: 0 }); // 성공적으로 업데이트된 경우
     const updatedRole = await userService.toggleRole(mockUser as User);
-    expect(updatedRole).toEqual('1');
+    expect(updatedRole).toEqual('0');
     expect(userRepositoryMock.update).toHaveBeenCalledWith(
       { id: mockUser.id },
-      { role: '1' }, // 106번 줄 과 109번 줄'1' 실패하게
+      { role: '0' }, // 106번 줄 과 109번 줄'1' 실패하게
     );
   });
 
